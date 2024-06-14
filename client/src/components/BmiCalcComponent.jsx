@@ -6,7 +6,7 @@ function BmiCalcComponent() {
   
     return (
       <>
-        <h1>Hello {place}</h1>
+        <h1>Hello World</h1>
       </>
     )
   }
