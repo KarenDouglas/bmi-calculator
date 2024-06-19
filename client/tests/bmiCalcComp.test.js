@@ -34,7 +34,7 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         const heightInput = screen.getByLabelText('Height');
         const weightInput = screen.getByLabelText('Weight');
         const resultsHeading = screen.getByRole('heading', {name: 'Results header'});
-        const resultParagraph = screen.getByText(`Enter our height and weight nd you'll see your BMI result here`);
+        const resultParagraph = screen.getByText(`Enter our height and weight and you'll see your BMI result here`);
         
         // testing all element in the form and content is rendered
         expect(form).toBeDefined();
@@ -49,7 +49,7 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         expect(resultsHeading).toBeDefined();
         expect(resultsHeading.innerHTML).toMatch('Welcome!');
         expect(resultParagraph).toBeDefined();
-        expect(resultParagraph.innerHTML).toMatch(`Enter our height and weight nd you'll see your BMI result here`);     
+        expect(resultParagraph.innerHTML).toMatch(`Enter our height and weight and you'll see your BMI result here`);     
     });
     test('should return BMI calculation using metric system', ()=> {
         //-------- BMI CALCULATIONS NOTES------------
@@ -93,16 +93,14 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         fireEvent.change(weightInput, {target: {value: 75}});
 
         
-        expect(heightInput.value).toBe('170');
-        expect(weightInput.value).toBe('75');
+        expect(heightInput.value).toBe(170);
+        expect(weightInput.value).toBe(75);
         expect(parseFloat(resultsEl.innerHTML)).toBeCloseTo(25.8);
         expect(resultsHeading.innerHTML).toMatch('Your BMI is...');
         expect(resultParagraph.innerHTML).toMatch(`Your BMI suggests you're at an unhealthy weight. Your ideal weight is between 53.5kgs-72kgs`);
         expect(weightClassSpan.innerHTML).toMatch(UNHEALTHY_WEIGHT);
-        expect(parseFloat(minWeightSpan.innerHTML)).toBe(53.5)
-        expect(parseFloat(maxWeightSpan.innerHTML)).toBe(72)
-        
-
+        expect(parseFloat(minWeightSpan.innerHTML)).toBe(53.5);
+        expect(parseFloat(maxWeightSpan.innerHTML)).toBe(72);
     });
 
 

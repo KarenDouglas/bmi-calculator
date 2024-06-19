@@ -2,8 +2,30 @@ import React, {useState} from "react";
 import logo from "../assets/logo.svg"
 
 function BmiCalcComponent() {
-    const [resultsHeaderAriaLabel, setResultsHeaderAriaLabel] = useState('Welcome header')
-  
+  // create onchange event on inputs
+  // calculate bmi
+  // set function to dynamically change weight classification
+  // create function to get min and max weight based on height
+
+  const [heightInputValue, setHeightInputValue] = useState('');
+  const [weightInputValue, setWeightInputValue] = useState('');
+  const [resultsHeader, setResultsHeader] = useState('Welcome!');
+  const [resultsDesc, setResultsDec] = useState(`Enter our height and weight and you'll see your BMI result here`);
+  const [bmiResults, setBmiresults] = useState(0);
+  const [weightClass, setWeightClass] = useState('');
+
+  const handleHeightChange = (e) => {
+    e.preventDefault();
+    setHeightInputValue(e.target.value)
+    console.log(e.target.value)
+
+  }
+  const handleWeightChange = (e) => {
+    e.preventDefault();
+    setWeightInputValue(e.target.value)
+    console.log(e.target.value)
+
+  }
     return (
       <>
        <main>
@@ -19,21 +41,31 @@ function BmiCalcComponent() {
             <form data-testid="measurment-form">
                 <h3 aria-label="Enter your details below">Enter your details below</h3>
                 <label htmlFor="metric" >Metric</label>
-                <input type="radio" id="metric" checked/>
+                <input type="radio" id="metric" defaultChecked
+                />
                 <label htmlFor="imperial">Imperial</label>
-                <form>
                 <input type="radio" id="imperial" aria-labelledby="imperial" />
                 <label htmlFor="height">Height</label>
-                <input type="text" id="height" />
-                <label htmlFor="weight">Weight</label>
-                <input type="text" id="weight" />
-
-                </form>
+                <input 
+                type="number" 
+                id="height" 
+                placeholder='0'
+                onChange={handleHeightChange}
+                value={heightInputValue}
+                />
+                <label htmlFor="weight" >Weight</label>
+                <input 
+                type="number" 
+                id="weight" 
+                placeholder='0'
+                value={weightInputValue}
+                onChange={handleWeightChange}
+                />
             </form>
             <section>
-                <h3 aria-label="Results header">Welcome!</h3>
-                <p  data-testid="results">25.8</p>
-                <p data-testid="results-description">Enter our height and weight nd you'll see your BMI result here</p>
+                <h3 aria-label="Results header">{resultsHeader}</h3>
+                <p  data-testid="results">{bmiResults}</p>
+                <p data-testid="results-description">{resultsDesc}</p>
 
             </section>
        </main>
