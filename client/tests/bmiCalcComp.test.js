@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, act } from '@testing-library/react';
 import BmiCalcComponent from '../src/components/BmiCalcComponent';
 
 
@@ -51,7 +51,7 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         expect(resultParagraph).toBeDefined();
         expect(resultParagraph.innerHTML).toMatch(`Enter our height and weight and you'll see your BMI result here`);     
     });
-    test('should return BMI calculation using metric system', ()=> {
+    test('should return BMI calculation using metric system', async()=> {
         //-------- BMI CALCULATIONS NOTES------------
         
         //-----  HEALTHY BMI RANGE IS 18.5 kg/m² to 24.9 kg/m² -------
@@ -80,29 +80,31 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         const heightInput = screen.getByLabelText('Height');
         const weightInput = screen.getByLabelText('Weight');
         const resultsHeading = screen.getByRole('heading', {name: 'Results header'});
-        const resultsEl = screen.getByTestId('results');
-        const resultParagraph = screen.getByTestId('results-description');
-        const weightClassSpan = screen.getByTestId('weight-classification');
-        const minWeightSpan = screen.getByTestId('min-weight-range');
-        const maxWeightSpan = screen.getByTestId('max-weight-range');
         const HEALTHY_WEIGHT = "a healthy weight";
         const UNHEALTHY_WEIGHT = "an unhealty weight";
         
-        // submits height and weight inputs
-        fireEvent.change(heightInput, {target: {value: 170}});
-        fireEvent.change(weightInput, {target: {value: 75}});
-
         
-        expect(heightInput.value).toBe(170);
-        expect(weightInput.value).toBe(75);
-        expect(parseFloat(resultsEl.innerHTML)).toBeCloseTo(25.8);
+        expect(screen.queryByTestId('results')).toBeNull();
+        // submits height and weight inputs
+        fireEvent.change(heightInput, {target: {value: 185}});
+        fireEvent.change(weightInput, {target: {value: 80}});
+        
+        const resultParagraphFull = screen.getByTestId('results-description-full');
+        const weightClassSpan = screen.getByTestId('weight-classification');
+        const minWeightSpan = screen.getByTestId('min-weight-range');
+        const maxWeightSpan = screen.getByTestId('max-weight-range');
+        
+        expect(heightInput.value).toBe('185');
+        expect(weightInput.value).toBe('80');
+        expect(parseFloat(screen.getByTestId('results').innerHTML)).toBeCloseTo(23.4)
+        
         expect(resultsHeading.innerHTML).toMatch('Your BMI is...');
-        expect(resultParagraph.innerHTML).toMatch(`Your BMI suggests you're at an unhealthy weight. Your ideal weight is between 53.5kgs-72kgs`);
-        expect(weightClassSpan.innerHTML).toMatch(UNHEALTHY_WEIGHT);
-        expect(parseFloat(minWeightSpan.innerHTML)).toBe(53.5);
-        expect(parseFloat(maxWeightSpan.innerHTML)).toBe(72);
+        expect(resultParagraphFull.textContent).toMatch(`Your BMI suggests you're a healthy weight. Your ideal weight is between 63.3kgs~85.2kgs`);
+        expect(weightClassSpan.innerHTML).toMatch(HEALTHY_WEIGHT);
+        expect(parseFloat(minWeightSpan.innerHTML)).toBe(63.3);
+        expect(parseFloat(maxWeightSpan.innerHTML)).toBe(85.2);
     });
-
-
+    
+    
     
 });
