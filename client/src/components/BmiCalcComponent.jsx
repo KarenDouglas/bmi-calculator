@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import logo from "../assets/logo.svg"
 
 
-function BmiDescription({wClass}) {
+function BmiDescription({wClass, maxWeight, minWeight}) {
   // create function to get min and max weight based on height
 
   
   return(
     <>
     <section>
-      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span data-testid="min-weight-range">63.3</span>kgs~<span data-testid="max-weight-range">85.2</span>kgs</p>
+      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span data-testid="min-weight-range">{minWeight}</span>kgs~<span data-testid="max-weight-range">{maxWeight}</span>kgs</p>
     </section>
     </>
   )
@@ -18,18 +18,20 @@ function BmiDescription({wClass}) {
 
 function BmiCalcComponent() {
 
-
+  const minHealthyBMI = 18.5
+  const maxHealthyBMI = 24.9
   const [heightInputValue, setHeightInputValue] = useState('');
   const [weightInputValue, setWeightInputValue] = useState('');
   const [resultsHeader, setResultsHeader] = useState('Welcome!');
   const [showResultsInfo, setShowResultsInfo] = useState(false)
   const [bmiResults, setBmiresults] = useState('');
   const [weightClass, setWeightClass] = useState('');
-console.log({showResultsInfo})
+  const [minHealthyWeight, setMinHealthyWeight] = useState('')
+  const [maxHealthyWeight, setMaxHealthyWeight] = useState('')
+
   // calculates BMI based on heigh(cm) and weight (kg)
   const bmiCalculatorMetric = (heightCm, weight) => {
       const heightInMeters = heightCm / 100
-
       const bmi = weight / (heightInMeters * heightInMeters)
       const roundedUpBMI = Math.ceil((bmi.toFixed(2) * 10)) / 10
       return roundedUpBMI;
@@ -39,8 +41,7 @@ console.log({showResultsInfo})
   const getWeightClass = (bmi) => {
     //if bmi is <18.5 || > 24.9 weight class is unhealthy
     // else healthy weight
-    console.log({bmi})
-    if(bmi < 18.5 || bmi > 24.9){
+    if(bmi < minHealthyBMI || bmi > maxHealthyBMI){
       
       setWeightClass("an unhealthy weight")
     }else{
@@ -48,6 +49,22 @@ console.log({showResultsInfo})
     }
     return;
   };
+
+  const getMinHealthyWeight = (heightCm) => {
+    const heightInMeters = heightCm / 100
+    // Minimum Healthy Weight (kg) = BMI_min * height²
+    const results = minHealthyBMI * heightInMeters *heightInMeters;   
+    setMinHealthyWeight(results.toFixed(1));        
+    return;
+  };
+
+  const getMaxHealthyWeight = (heightCm) => {
+    const heightInMeters = heightCm / 100
+        // Maximum Healthy Weight (kg) = BMI_max * height²
+        const results = maxHealthyBMI * heightInMeters *heightInMeters;   
+        setMaxHealthyWeight(results.toFixed(1));        
+        return;
+  }
 
   // gets height values from user's inputs
   const handleHeightChange = (e) => {
@@ -70,6 +87,8 @@ console.log({showResultsInfo})
       setResultsHeader('Your BMI is...')
       setShowResultsInfo(true);
       getWeightClass(results)
+      getMaxHealthyWeight(heightInputValue);
+      getMinHealthyWeight(heightInputValue)
       };
   },[heightInputValue,weightInputValue])
 
@@ -117,7 +136,8 @@ console.log({showResultsInfo})
             {showResultsInfo ? (
               <BmiDescription
               wClass = {weightClass}
-            
+              maxWeight = {maxHealthyWeight}
+              minWeight = {minHealthyWeight}
               />
             ) : (
 
