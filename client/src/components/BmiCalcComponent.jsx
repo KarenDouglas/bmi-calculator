@@ -69,7 +69,18 @@ function BmiCalcComponent() {
         setMaxHealthyWeight(results.toFixed(1));        
         return;
   }
+  // resets form info
+  const resetFormValues = () => {
+    setHeightKgInputValue('');
+    setWeightKgInputValue(""); 
+    setBmiresults("");
+    setWeightClass("");
+    setMinHealthyWeight("");
+    setMaxHealthyWeight("");
+    setResultsHeader("Welcome!");
+    setShowResultsInfo(false);
 
+  };
   // gets height values from user's inputs
   const handleHeightChange = (e) => {
     setHeightKgInputValue(parseFloat(e.target.value))
@@ -83,6 +94,7 @@ function BmiCalcComponent() {
   const handleMeasurementChange = (state) => {
     console.log(state)
     setSelectedMeasurement(state)
+    resetFormValues()
   }
 
   // handles the state of the BMI results and info for the BMI calculator form

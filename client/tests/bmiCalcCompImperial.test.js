@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, render, screen} from '@testing-library/react';
+import { fireEvent, getAllByLabelText, render, screen} from '@testing-library/react';
 import BmiCalcComponent from '../src/components/BmiCalcComponent';
 
 //test Imperial and Metric radio buttons
@@ -37,16 +37,38 @@ test('when imperial input is selected,all elements of imperial form are present,
     heightIn = screen.queryByLabelText("height-inch");  
     weightSt = screen.queryByLabelText("weight-stone");   
     weightLbs = screen.queryByLabelText("weight-pounds");
+    const resultsEl = screen.queryByTestId("results")
 
     expect(imperialOption.checked).toBeTruthy();
     expect(metricOption.checked).toBeFalsy();
+    expect(resultsEl).toBeNull();
     expect(heightKg).toBeNull();
     expect(weightKg).toBeNull();
     expect(heightFt).not.toBeNull();
     expect(heightIn).not.toBeNull();
     expect(weightSt).not.toBeNull();
     expect(weightLbs).not.toBeNull();
+});
 
+test("when user clicks on imperial or metric radio options, the bmi calculator resetsd", ()=> {
+render(<BmiCalcComponent/>)
+const heightKg = screen.queryByLabelText('height-kg');
+const weightKg = screen.queryByLabelText('weight-kg');
+const imperialOption = screen.getByLabelText('Imperial');
+
+fireEvent.change(heightKg, {target: {value: 185}});
+fireEvent.change(weightKg, {target: {value: 80}});
+fireEvent.click(imperialOption);
+const resultsEl = screen.queryByTestId('results')
+const resultsHeader = screen.getByRole('heading', {name: "Results header"})
+const resultParagraph = screen.getByText(`Enter our height and weight and you'll see your BMI result here`)
+
+expect(resultsEl).toBeNull();
+expect(resultsHeader.innerHTML).toMatch('Welcome!');
+expect(resultParagraph.innerHTML).toMatch(`Enter our height and weight and you'll see your BMI result here`);   
 })
+
+test("")
+
     
 });
