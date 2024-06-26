@@ -31,8 +31,8 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         const formHeading = screen.getByRole('heading', {name: "Enter your details below"})
         const metricRadioOption = screen.getByRole('radio',{name: 'Metric'});
         const imperialOption = screen.getByRole('radio', {name: 'Imperial'});
-        const heightInput = screen.getByLabelText('Height');
-        const weightInput = screen.getByLabelText('Weight');
+        const heightInput = screen.getByLabelText('height-kg');
+        const weightInput = screen.getByLabelText('weight-kg');
         const resultsHeading = screen.getByRole('heading', {name: 'Results header'});
         const resultParagraph = screen.getByText(`Enter our height and weight and you'll see your BMI result here`);
         
@@ -77,8 +77,8 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         // renders BMI Component
         render(<BmiCalcComponent />);
         // Elements
-        const heightInput = screen.getByLabelText('Height');
-        const weightInput = screen.getByLabelText('Weight');
+        const heightInput = screen.getByLabelText('height-kg');
+        const weightInput = screen.getByLabelText('weight-kg');
         const resultsHeading = screen.getByRole('heading', {name: 'Results header'});
         const HEALTHY_WEIGHT = "a healthy weight";
         const UNHEALTHY_WEIGHT = "an unhealty weight";
