@@ -3,9 +3,6 @@ import logo from "../assets/logo.svg"
 
 
 function BmiDescription({wClass, maxWeight, minWeight}) {
-  // create function to get min and max weight based on height
-
-  
   return(
     <>
     <section>
@@ -32,6 +29,7 @@ function BmiCalcComponent() {
   // calculates BMI based on heigh(cm) and weight (kg)
   const bmiCalculatorMetric = (heightCm, weight) => {
       const heightInMeters = heightCm / 100
+      // BMI = weight (kg) / (height (m))^2
       const bmi = weight / (heightInMeters * heightInMeters)
       const roundedUpBMI = Math.ceil((bmi.toFixed(2) * 10)) / 10
       return roundedUpBMI;
@@ -50,6 +48,7 @@ function BmiCalcComponent() {
     return;
   };
 
+  // generates the minimum healthy weight range based on hieght and minimun BMI
   const getMinHealthyWeight = (heightCm) => {
     const heightInMeters = heightCm / 100
     // Minimum Healthy Weight (kg) = BMI_min * height²
@@ -57,8 +56,9 @@ function BmiCalcComponent() {
     setMinHealthyWeight(results.toFixed(1));        
     return;
   };
-
+  
   const getMaxHealthyWeight = (heightCm) => {
+    // generates the maximum healthy weight range based on hieght and maximun BMI
     const heightInMeters = heightCm / 100
         // Maximum Healthy Weight (kg) = BMI_max * height²
         const results = maxHealthyBMI * heightInMeters *heightInMeters;   
@@ -69,13 +69,11 @@ function BmiCalcComponent() {
   // gets height values from user's inputs
   const handleHeightChange = (e) => {
     setHeightInputValue(parseFloat(e.target.value))
-    console.log('height', e.target.value)
   };
 
   // gets weight values from user's inputs
   const handleWeightChange = (e) => {
     setWeightInputValue(parseFloat(e.target.value))
-    console.log('weight',e.target.value)
   };
 
   // handles the state of the BMI results and info for the BMI calculator form

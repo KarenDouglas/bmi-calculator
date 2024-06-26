@@ -1,12 +1,12 @@
 import React from 'react';
-import { fireEvent, render, screen, act } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import BmiCalcComponent from '../src/components/BmiCalcComponent';
 
 
 
 
 
-describe('test that all visible aspects of the BMI Component are rendered after loaded', () => {
+describe('test that all visible aspects of the BMI Component are rendered after loaded for the Metric system form', () => {
 
 
     test('renders main heading and paragraph content', () => {
