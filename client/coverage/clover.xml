@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1719444665846" clover="3.2.0">
+  <project timestamp="1719444665847" name="All files">
+    <metrics statements="66" coveredstatements="64" conditionals="28" coveredconditionals="25" methods="13" coveredmethods="12" elements="107" coveredelements="101" complexity="0" loc="66" ncloc="66" packages="2" files="2" classes="2"/>
+    <package name="assets">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="logo.svg" path="C:\Users\kdind\Documents\deleteMe\bmi-calculator\client\src\assets\logo.svg">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="components">
+      <metrics statements="65" coveredstatements="63" conditionals="28" coveredconditionals="25" methods="13" coveredmethods="12"/>
+      <file name="BmiCalcComponent.jsx" path="C:\Users\kdind\Documents\deleteMe\bmi-calculator\client\src\components\BmiCalcComponent.jsx">
+        <metrics statements="65" coveredstatements="63" conditionals="28" coveredconditionals="25" methods="13" coveredmethods="12"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="19" count="15" type="stmt"/>
+        <line num="20" count="15" type="stmt"/>
+        <line num="21" count="15" type="stmt"/>
+        <line num="22" count="15" type="stmt"/>
+        <line num="23" count="15" type="stmt"/>
+        <line num="24" count="15" type="stmt"/>
+        <line num="25" count="15" type="stmt"/>
+        <line num="26" count="15" type="stmt"/>
+        <line num="27" count="15" type="stmt"/>
+        <line num="28" count="15" type="stmt"/>
+        <line num="29" count="15" type="stmt"/>
+        <line num="31" count="15" type="stmt"/>
+        <line num="34" count="15" type="stmt"/>
+        <line num="35" count="2" type="stmt"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="43" count="15" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="52" count="2" type="stmt"/>
+        <line num="56" count="15" type="stmt"/>
+        <line num="57" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="60" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="2" type="stmt"/>
+        <line num="67" count="15" type="stmt"/>
+        <line num="69" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="70" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="80" count="15" type="stmt"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="82" count="3" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="87" count="3" type="stmt"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="92" count="15" type="stmt"/>
+        <line num="93" count="2" type="stmt"/>
+        <line num="97" count="15" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="101" count="15" type="stmt"/>
+        <line num="102" count="3" type="stmt"/>
+        <line num="103" count="3" type="stmt"/>
+        <line num="104" count="3" type="stmt"/>
+        <line num="108" count="15" type="stmt"/>
+        <line num="109" count="11" type="cond" truecount="4" falsecount="0"/>
+        <line num="110" count="2" type="stmt"/>
+        <line num="112" count="2" type="stmt"/>
+        <line num="113" count="2" type="stmt"/>
+        <line num="114" count="2" type="stmt"/>
+        <line num="115" count="2" type="stmt"/>
+        <line num="116" count="2" type="stmt"/>
+        <line num="117" count="2" type="stmt"/>
+        <line num="123" count="15" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+        <line num="152" count="3" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

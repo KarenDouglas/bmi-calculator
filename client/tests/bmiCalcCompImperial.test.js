@@ -50,7 +50,7 @@ test('when imperial input is selected,all elements of imperial form are present,
     expect(weightLbs).not.toBeNull();
 });
 
-test("when user clicks on imperial or metric radio options, the bmi calculator resetsd", ()=> {
+test("when user clicks on imperial or metric radio options, the bmi calculator resets form values", ()=> {
 render(<BmiCalcComponent/>)
 const heightKg = screen.queryByLabelText('height-kg');
 const weightKg = screen.queryByLabelText('weight-kg');
@@ -68,7 +68,51 @@ expect(resultsHeader.innerHTML).toMatch('Welcome!');
 expect(resultParagraph.innerHTML).toMatch(`Enter our height and weight and you'll see your BMI result here`);   
 })
 
-test("")
+test("when user inputs data in imperial form, BMI calculates", ()=>{
+    render(<BmiCalcComponent/>)
+
+    fireEvent.click(screen.getByLabelText("Imperial"));
+
+    let  heigthFt = screen.getByLabelText("height-feet");
+    let heightIn = screen.getByLabelText("height-inch");
+    let weightSt = screen.getByLabelText("weight-stone");
+    let weightLbs = screen.getByLabelText("weight-pounds");
+    
+    fireEvent.change(heigthFt, {target: {value: 5}});
+    fireEvent.change(heightIn, {target: {value:11}});
+    fireEvent.change(weightSt, {target: {value: 11}});
+    fireEvent.change(weightLbs, {target: {value: 4}});
+    
+    heigthFt = screen.getByLabelText("height-feet");
+    heightIn = screen.getByLabelText("height-inch");
+    weightSt = screen.getByLabelText("weight-stone");
+    weightLbs = screen.getByLabelText("weight-pounds");
+    
+    expect(heigthFt.value).toBe('5');
+    expect(heightIn.value).toBe('11');
+    expect(weightSt.value).toBe('11');
+    expect(weightLbs.value).toBe('4');
+    
+    const resultsHeader = screen.getByRole("heading", {name: "Results header"});
+    const HEALTHY_WEIGHT = "a healthy weight"; 
+    const resultParagraphFull = screen.getByTestId('results-description-full');
+    const weightClassSpan = screen.getByTestId('weight-classification');
+    const minWeightSpan = screen.getByTestId('min-weight-range');
+    const maxWeightSpan = screen.getByTestId('max-weight-range');
+    
+;
+    expect(parseFloat(screen.getByTestId('results').innerHTML)).toBeCloseTo(22.0);
+    expect(resultsHeader.innerHTML).toMatch("Your BMI is...")
+    expect(resultParagraphFull.textContent).toBe(`Your BMI suggests you're a healthy weight. Your ideal weight is between 9st 6lbs~12st 10lbs`)
+    expect(weightClassSpan.innerHTM).toBe(HEALTHY_WEIGHT);
+    expect(minWeightSpan.innerHTML).toMatch("9st 6lbs");
+    expect(maxWeightSpan.innerHTML).toMatch("12st 10lbs");
+})
+
+
+
+
+
 
     
 });

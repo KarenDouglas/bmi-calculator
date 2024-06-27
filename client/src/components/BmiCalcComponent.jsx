@@ -6,7 +6,7 @@ function BmiDescription({wClass, maxWeight, minWeight}) {
   return(
     <>
     <section>
-      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span data-testid="min-weight-range">{minWeight}</span>kgs~<span data-testid="max-weight-range">{maxWeight}</span>kgs</p>
+      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span data-testid="min-weight-range">{minWeight}</span>~<span data-testid="max-weight-range">{maxWeight}</span></p>
     </section>
     </>
   )
@@ -32,10 +32,10 @@ function BmiCalcComponent() {
 
   // calculates BMI based on heigh(cm) and weight (kg)
   const bmiCalculatorMetric = (heightCm, weight) => {
-      const heightInMeters = heightCm / 100
+      const heightInMeters = heightCm / 100;
       // BMI = weight (kg) / (height (m))^2
-      const bmi = weight / (heightInMeters * heightInMeters)
-      const roundedUpBMI = Math.ceil((bmi.toFixed(2) * 10)) / 10
+      const bmi = weight / (heightInMeters * heightInMeters);
+      const roundedUpBMI = Math.ceil((bmi.toFixed(2) * 10)) / 10;
       return roundedUpBMI;
   };
 
@@ -54,20 +54,27 @@ function BmiCalcComponent() {
 
   // generates the minimum healthy weight range based on hieght and minimun BMI
   const getMinHealthyWeight = (heightCm) => {
-    const heightInMeters = heightCm / 100
-    // Minimum Healthy Weight (kg) = BMI_min * height²
-    const results = minHealthyBMI * heightInMeters *heightInMeters;   
-    setMinHealthyWeight(results.toFixed(1));        
-    return;
+    if(selectedMeasurement === METRIC){
+      const heightInMeters = heightCm / 100;
+          // Minimum Healthy Weight (kg) = BMI_min * height²
+          const results = minHealthyBMI * heightInMeters *heightInMeters;   
+          setMinHealthyWeight(`${results.toFixed(1)}kgs`);        
+          return;
+
+    }
   };
   
   const getMaxHealthyWeight = (heightCm) => {
+
+    if(selectedMeasurement === METRIC){
+      const heightInMeters = heightCm / 100;
+          // Maximum Healthy Weight (kg) = BMI_max * height²
+          const results = maxHealthyBMI * heightInMeters *heightInMeters;   
+          setMaxHealthyWeight(`${results.toFixed(1)}kgs`);        
+          return;
+
+    }
     // generates the maximum healthy weight range based on hieght and maximun BMI
-    const heightInMeters = heightCm / 100
-        // Maximum Healthy Weight (kg) = BMI_max * height²
-        const results = maxHealthyBMI * heightInMeters *heightInMeters;   
-        setMaxHealthyWeight(results.toFixed(1));        
-        return;
   }
   // resets form info
   const resetFormValues = () => {
@@ -82,12 +89,12 @@ function BmiCalcComponent() {
 
   };
   // gets height values from user's inputs
-  const handleHeightChange = (e) => {
+  const handleHeightKgChange = (e) => {
     setHeightKgInputValue(parseFloat(e.target.value))
   };
 
   // gets weight values from user's inputs
-  const handleWeightChange = (e) => {
+  const handleWeightKgChange = (e) => {
     setWeightKgInputValue(parseFloat(e.target.value))
   };
 
@@ -152,7 +159,7 @@ function BmiCalcComponent() {
                 placeholder='0'
                 aria-label="height-kg"
                 value={heightKgInputValue}
-                onChange={handleHeightChange}
+                onChange={handleHeightKgChange}
                 />}
                 {selectedMeasurement === IMPERIAL &&
                 <input
@@ -174,18 +181,18 @@ function BmiCalcComponent() {
                 placeholder='0'
                 aria-label="weight-kg"
                 value={weightKgInputValue}
-                onChange={handleWeightChange}
+                onChange={handleWeightKgChange}
                 />
                 }
                 {selectedMeasurement === IMPERIAL &&
                 <input
-                type="numer"
+                type="number"
                 aria-label="weight-stone"
                 />
                 }
                 {selectedMeasurement === IMPERIAL &&
                 <input
-                type="numer"
+                type="number"
                 aria-label="weight-pounds"
                 />
                 }

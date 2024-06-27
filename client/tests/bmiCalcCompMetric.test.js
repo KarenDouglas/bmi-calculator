@@ -101,8 +101,8 @@ describe('test that all visible aspects of the BMI Component are rendered after 
         expect(resultsHeading.innerHTML).toMatch('Your BMI is...');
         expect(resultParagraphFull.textContent).toMatch(`Your BMI suggests you're a healthy weight. Your ideal weight is between 63.3kgs~85.2kgs`);
         expect(weightClassSpan.innerHTML).toMatch(HEALTHY_WEIGHT);
-        expect(parseFloat(minWeightSpan.innerHTML)).toBe(63.3);
-        expect(parseFloat(maxWeightSpan.innerHTML)).toBe(85.2);
+        expect(minWeightSpan.innerHTML).toBe('63.3kgs');
+        expect(maxWeightSpan.innerHTML).toBe('85.2kgs');
     });
     
     
