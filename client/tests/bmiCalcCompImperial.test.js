@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, getAllByLabelText, render, screen} from '@testing-library/react';
+import { fireEvent,  render, screen} from '@testing-library/react';
 import BmiCalcComponent from '../src/components/BmiCalcComponent';
 
 //test Imperial and Metric radio buttons

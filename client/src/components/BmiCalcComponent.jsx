@@ -116,8 +116,8 @@ const calculateWeightRangeFtIn = (feet,inches) => {
   const minWeightRemainingLbs = Math.trunc((minWeightLbs % 14).toFixed(1));  
   const maxWeightStone = Math.floor(maxWeightLbs/14);
   const maxWeightRemainingLbs = Math.trunc((maxWeightLbs % 14).toFixed(1));  
-  setHealthyMinRangeString(`${minWeightStone}st ${minWeightRemainingLbs}lbs`)
-  setHealthyMaxRangeString(`${maxWeightStone}st ${maxWeightRemainingLbs}lbs`)
+  setHealthyMinRangeString(`${minWeightStone}st ${minWeightRemainingLbs}lbs`);
+  setHealthyMaxRangeString(`${maxWeightStone}st ${maxWeightRemainingLbs}lbs`);
   return;
 };
 
@@ -202,9 +202,9 @@ const calculateWeightRangeFtIn = (feet,inches) => {
             </figure>
         </section>
         <section>
-                <h1>Body Mass Index Calculator</h1>
-                <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
-            </section>
+            <h1>Body Mass Index Calculator</h1>
+            <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+        </section>
             {/* FORM SECTION */}
             <form data-testid="measurment-form">
                 <h3 aria-label="Enter your details below">Enter your details below</h3>
