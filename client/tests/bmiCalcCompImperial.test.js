@@ -104,7 +104,7 @@ test("when user inputs data in imperial form, BMI calculates", ()=>{
     expect(parseFloat(screen.getByTestId('results').innerHTML)).toBeCloseTo(22.0);
     expect(resultsHeader.innerHTML).toMatch("Your BMI is...")
     expect(resultParagraphFull.textContent).toBe(`Your BMI suggests you're a healthy weight. Your ideal weight is between 9st 6lbs~12st 10lbs`)
-    expect(weightClassSpan.innerHTM).toBe(HEALTHY_WEIGHT);
+    expect(weightClassSpan.innerHTML).toMatch(HEALTHY_WEIGHT);
     expect(minWeightSpan.innerHTML).toMatch("9st 6lbs");
     expect(maxWeightSpan.innerHTML).toMatch("12st 10lbs");
 })
