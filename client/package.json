@@ -15,7 +15,7 @@
     "testEnvironment": "jest-environment-jsdom",
     "transform": {
       "^.+\\.jsx?$": "babel-jest",
-      ".+\\.(css|scss|png|jpg|svg)$": "jest-transform-stub"
+      ".+\\.(css|scss|png|jpg|svg|webp)$": "jest-transform-stub"
     }
   },
   "dependencies": {
