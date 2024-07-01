@@ -13,12 +13,64 @@
     --headerLineH: 110%;
     --bodyFontM : 16px;
     --regular: 400;
-    --bodyLineH: 150%
+    --bodyLineH: 150%;
+    --defaultInputColor: #D8E2E7;
 }
 body{
-font-family: "inter";
+    font-family: "inter";
+    line-height: var(--bodyLineH);
 }
 
+input[type="number"]{
+    width: 238px;
+    height: 69px;
+    font-size: var(--headerMed);
+    font-weight: var(--semiBold);
+    color: var(--primary-color);
+    border-radius: 18px;;
+    border: var(--defaultInputColor) 1px solid;
+    transition:border 0.3s ease;
+}
+input[type=number]::placeholder{
+    color: var(--defaultInputColor);
+}
+
+input:hover{
+border: var(--accent-color) 1px solid;
+}
+input[type="radio"]{
+    position: relative;
+    appearance: none;
+    width: 31px;
+    height: 31px;
+    border: var(--defaultInputColor) 1px solid;
+    border-radius: 50%;
+    background-color: transparent;
+    transition:border 0.3s ease-in;
+}
+input[type="radio"]:checked{
+    background-color: rgb(52, 95, 246, .15);
+    border: none;
+
+}
+input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px;           
+    height: 12px;          
+    background-color: var(--accent-color);
+    border-radius: 50%;    
+    position: absolute;   
+    top: 50%;              
+    left: 50%;
+    opacity: 100%;              
+    transform: translate(-50%, -50%); 
+}
+
+
+input[type="radio"]:hover{
+  border-color: var(--accent-color);
+}
 h1{
     font-size: var(--headerXL);
     font-weight: var(--semiBold);
