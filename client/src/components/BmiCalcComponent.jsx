@@ -25,7 +25,6 @@ function BmiCalcComponent() {
   //Imperial input Values
   const [heightFtInputValue, setHeightFtInputValue] = useState('');
   const [heightInInputValue, setHeightInInputValue] = useState('');
-  const [weightStInputValue, setWeightStInputValue] = useState('');
   const [weightLbsInputValue, setWeightLbsInputValue] = useState('');
   // BMI results section variables
   const [resultsHeader, setResultsHeader] = useState('Welcome!');
@@ -35,9 +34,6 @@ function BmiCalcComponent() {
   // healthy weight in kg range variablees
   const [minHealthyWeightKg, setMinHealthyWeightKg] = useState('');
   const [maxHealthyWeightKg, setMaxHealthyWeightKg] = useState('');
-  // healthy weight range in st and lbs variables
-  const [minHealthyWeightSt, setMinHealthyWeightSt] = useState('');
-  const [maxHealthyWeightSt, setMaxHealthyWeightSt] = useState('');
   const [healthyMinRangeString, setHealthyMinRangeString] = useState('');
   const [healthyMaxRangeString, setHealthyMaxRangeString] = useState('');
   // form measurement state variable
@@ -52,11 +48,10 @@ function BmiCalcComponent() {
       return roundedUpBMI;
   };
   // caculates BMI based on hieght (in) and weight(st)
-  const bmiCalculatorImperial = (heightFt,hieghtIn,weightSt,weightLbs) => {
+  const bmiCalculatorImperial = (heightFt,hieghtIn,weightLbs) => {
     const convertedFtToIn = (heightFt * 12) + hieghtIn
-    const convertedStToLbs = (weightSt * 14)+weightLbs
     //bmi = (weight_in_lbs /height_in) X 703
-    const bmiRaw = ( convertedStToLbs/Math.pow(convertedFtToIn,2)) *703
+    const bmiRaw = (weightLbs/Math.pow(convertedFtToIn,2)) *703
     return bmiRaw.toFixed(1)
   };
   // determines whether weight if overweight/ underweight or heathly weight
@@ -110,14 +105,9 @@ const calculateWeightRangeFtIn = (feet,inches) => {
   // Convert height to meters
   const minWeightLbs = (minHealthyBMI * Math.pow(heightInInches,2))/703;
   const maxWeightLbs = (maxHealthyBMI * Math.pow(heightInInches,2)) / 703;
-  console.log({minWeightLbs,maxWeightLbs})
-  // convert weight to stone and pounds
-  const minWeightStone = Math.floor(minWeightLbs/14);
-  const minWeightRemainingLbs = Math.trunc((minWeightLbs % 14).toFixed(1));  
-  const maxWeightStone = Math.floor(maxWeightLbs/14);
-  const maxWeightRemainingLbs = Math.trunc((maxWeightLbs % 14).toFixed(1));  
-  setHealthyMinRangeString(`${minWeightStone}st ${minWeightRemainingLbs}lbs`);
-  setHealthyMaxRangeString(`${maxWeightStone}st ${maxWeightRemainingLbs}lbs`);
+  console.log({minWeightLbs,maxWeightLbs})  
+  setHealthyMinRangeString(`${Math.trunc(minWeightLbs)}lbs`);
+  setHealthyMaxRangeString(`${Math.trunc(maxWeightLbs)}lbs`);
   return;
 };
 
@@ -160,10 +150,6 @@ const calculateWeightRangeFtIn = (feet,inches) => {
     setHeightInInputValue(parseFloat(e.target.value));    
   };
   
-  //get weight in stone from user's inputs
-  const handleWeightStChange = (e) => {
-    setWeightStInputValue(parseFloat(e.target.value));    
-  };
   //gets weight in pounds from user's inputs
   const handleWeightLbsChange = (e) => {
     setWeightLbsInputValue(parseFloat(e.target.value));
@@ -181,15 +167,15 @@ const calculateWeightRangeFtIn = (feet,inches) => {
       getMinHealthyWeightKg(heightKgInputValue);
       };
 
-      if(heightFtInputValue && heightInInputValue && weightStInputValue && weightLbsInputValue){
-        const imperialResults = bmiCalculatorImperial(heightFtInputValue, heightInInputValue,weightStInputValue, weightLbsInputValue);
+      if(heightFtInputValue && heightInInputValue && weightLbsInputValue){
+        const imperialResults = bmiCalculatorImperial(heightFtInputValue, heightInInputValue , weightLbsInputValue);
       setBmiresults(imperialResults);
       setResultsHeader('Your BMI is...');
       setShowResultsInfo(true);
       getWeightClass(imperialResults);
       calculateWeightRangeFtIn(heightFtInputValue,heightInInputValue);
       }
-  },[heightKgInputValue,weightKgInputValue,heightFtInputValue,heightInInputValue,weightStInputValue, weightLbsInputValue]);
+  },[heightKgInputValue,weightKgInputValue,heightFtInputValue,heightInInputValue, weightLbsInputValue]);
   // handles metric/imperial toggle state
 
 
@@ -269,13 +255,7 @@ const calculateWeightRangeFtIn = (feet,inches) => {
                   onChange={handleHeightInChange}
                   />
                   <label>Weight</label>
-                  <input
-                  type="number"
-                  aria-label="weight-stone"
-                  placeholder="0"
-                  value={weightStInputValue}
-                  onChange={handleWeightStChange}
-                  />
+                  
                 <input
                 type="number"
                 aria-label="weight-pounds"

@@ -16,7 +16,6 @@ test('when imperial input is selected,all elements of imperial form are present,
     let weightKg = screen.queryByLabelText('weight-kg');
     let heightFt = screen.queryByLabelText("height-feet");   
     let heightIn = screen.queryByLabelText("height-inch");  
-    let weightSt = screen.queryByLabelText("weight-stone");   
     let weightLbs = screen.queryByLabelText("weight-pounds");
     
     expect(imperialOption.checked).toBeFalsy();
@@ -25,7 +24,6 @@ test('when imperial input is selected,all elements of imperial form are present,
     expect(weightKg).not.toBeNull();
     expect(heightIn).toBeNull();
     expect(heightFt).toBeNull();
-    expect(weightSt).toBeNull();
     expect(weightLbs).toBeNull();
     
 
@@ -35,7 +33,6 @@ test('when imperial input is selected,all elements of imperial form are present,
     weightKg = screen.queryByLabelText('weight-kg');
     heightFt = screen.queryByLabelText("height-feet");   
     heightIn = screen.queryByLabelText("height-inch");  
-    weightSt = screen.queryByLabelText("weight-stone");   
     weightLbs = screen.queryByLabelText("weight-pounds");
     const resultsEl = screen.queryByTestId("results")
 
@@ -46,7 +43,6 @@ test('when imperial input is selected,all elements of imperial form are present,
     expect(weightKg).toBeNull();
     expect(heightFt).not.toBeNull();
     expect(heightIn).not.toBeNull();
-    expect(weightSt).not.toBeNull();
     expect(weightLbs).not.toBeNull();
 });
 
@@ -74,24 +70,20 @@ test("when user inputs data in imperial form, BMI calculates", ()=>{
     fireEvent.click(screen.getByLabelText("Imperial"));
 
     let  heigthFt = screen.getByLabelText("height-feet");
-    let heightIn = screen.getByLabelText("height-inch");
-    let weightSt = screen.getByLabelText("weight-stone");
+    let heightIn = screen.getByLabelText("height-inch");;
     let weightLbs = screen.getByLabelText("weight-pounds");
     
     fireEvent.change(heigthFt, {target: {value: 5}});
-    fireEvent.change(heightIn, {target: {value:11}});
-    fireEvent.change(weightSt, {target: {value: 11}});
-    fireEvent.change(weightLbs, {target: {value: 4}});
+    fireEvent.change(heightIn, {target: {value: 2}});
+    fireEvent.change(weightLbs, {target: {value: 130}});
     
     heigthFt = screen.getByLabelText("height-feet");
     heightIn = screen.getByLabelText("height-inch");
-    weightSt = screen.getByLabelText("weight-stone");
     weightLbs = screen.getByLabelText("weight-pounds");
     
     expect(heigthFt.value).toBe('5');
-    expect(heightIn.value).toBe('11');
-    expect(weightSt.value).toBe('11');
-    expect(weightLbs.value).toBe('4');
+    expect(heightIn.value).toBe('2');
+    expect(weightLbs.value).toBe('130');
     
     const resultsHeader = screen.getByRole("heading", {name: "Results header"});
     const HEALTHY_WEIGHT = "a healthy weight"; 
@@ -101,14 +93,13 @@ test("when user inputs data in imperial form, BMI calculates", ()=>{
     const maxWeightSpan = screen.getByTestId('max-weight-range');
     
 ;
-    expect(parseFloat(screen.getByTestId('results').innerHTML)).toBeCloseTo(22.0);
+    expect(parseFloat(screen.getByTestId('results').innerHTML)).toBeCloseTo(23.8);
     expect(resultsHeader.innerHTML).toMatch("Your BMI is...")
-    expect(resultParagraphFull.textContent).toBe(`Your BMI suggests you're a healthy weight. Your ideal weight is between 9st 6lbs~12st 10lbs`)
+    expect(resultParagraphFull.textContent).toBe(`Your BMI suggests you're a healthy weight. Your ideal weight is between 101lbs~136lbs`)
     expect(weightClassSpan.innerHTML).toMatch(HEALTHY_WEIGHT);
-    expect(minWeightSpan.innerHTML).toMatch("9st 6lbs");
-    expect(maxWeightSpan.innerHTML).toMatch("12st 10lbs");
+    expect(minWeightSpan.innerHTML).toMatch("101lbs");
+    expect(maxWeightSpan.innerHTML).toMatch("136lbs");
 })
-
 
 
 

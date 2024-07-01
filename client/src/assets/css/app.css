@@ -1,0 +1,41 @@
+:root{
+    --primary-color: #253347;
+    --secondary-color: #5e6e85;
+    --accent-color: #345ff6;
+    --white-color: #FFF;
+    --headerXL: 64px;
+    --headerL: 48px;
+    --headerMed: 24px;
+    --headerSm: 20px;
+    --bodyMed: 16px;
+    --bodySm: 14px;
+    --semiBold: 600;
+    --headerLineH: 110%;
+    --bodyFontM : 16px;
+    --regular: 400;
+    --bodyLineH: 150%
+}
+body{
+font-family: "inter";
+}
+
+h1{
+    font-size: var(--headerXL);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+h2{
+    font-size: var(--headerL);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+h3{
+    font-size: var(--headerMed);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+h4{
+    font-size: var(--headerSm);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
