@@ -117,3 +117,6 @@ h4{
 p{
     color:var(--secondary-color)
 }
+.text-center{
+    text-align: center;
+}
