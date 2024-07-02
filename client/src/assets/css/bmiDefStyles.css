@@ -44,3 +44,22 @@
         max-width: 400px;
     }
 }
+
+@media (min-width: 850px) {
+    #man-eating{
+        height: 533px;
+        width: 564px;
+        margin-left: 0;
+    }
+    #bmi-meaning-section{
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+    #bmi-meaning-article{
+        max-width: 500px;
+        margin-top: 40px;
+    }
+    #bmi-meaning-article h2{
+        font-size: var(--headerL);
+    }
+}
