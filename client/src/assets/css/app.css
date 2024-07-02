@@ -114,9 +114,7 @@ h4{
 .color-gun{
     color: var(--secondary-color);
 }
-p{
-    color:var(--secondary-color)
-}
+
 .text-center{
     text-align: center;
 }

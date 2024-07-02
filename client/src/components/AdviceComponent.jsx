@@ -16,7 +16,7 @@ return(
                 </i>
                 <section>
                     <h3>Healthy eating</h3>
-                    <p>
+                    <p className='color-gun'>
                         Healthy eating promotes weight control, disease prevention, better digestion, immunity, mental clarity, and mood.
                     </p>
                 </section>
@@ -27,7 +27,7 @@ return(
                 </i>
                 <section>
                     <h3>Regular exercise</h3>
-                    <p>
+                    <p className='color-gun'>
                     Exercise improves fitness, aids weight control, elevates mood, and reduces disease risk, fostering wellness and longevity.
                     </p>
                 </section>
@@ -38,7 +38,7 @@ return(
                 </i>
                 <section>
                     <h3>Adequate sleep</h3>
-                    <p>
+                    <p className='color-gun'>
                     Sleep enhances mental clarity, emotional stability, and physical wellness, promoting overall restoration and rejuvenation.
                     </p>
                 </section>
