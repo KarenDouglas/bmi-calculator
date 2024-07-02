@@ -6,6 +6,12 @@
     padding: 53px 0;
     margin-top: 53px;
 }
+#advice-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    gap: 34px;
+}
 .advice-section h3{
     font-weight: var(--semiBold);
 }
@@ -33,6 +39,7 @@
         justify-content: space-between;
         max-width:686px;
         align-items: center;
+
     }
 
     #advice-wrapper>section section{

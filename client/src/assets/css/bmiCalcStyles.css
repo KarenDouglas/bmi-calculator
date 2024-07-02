@@ -109,11 +109,15 @@ h3[aria-label="Enter your details below"]{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    margin: 34px auto; 
+    margin: 16px auto; 
     width: 100%;
+}
+#results-description{
+    color: var(--white-color);
 }
 #bmi-results{
     font-size: var(--headerXL);
+    color: var(--white-color);
 }
 
 /* Tablet styles */
@@ -186,6 +190,6 @@ h3[aria-label="Enter your details below"]{
     }
     .form-container{
         max-width: 564px;
-        max-height: 445px;
+        max-height: 484px;
     }
 }

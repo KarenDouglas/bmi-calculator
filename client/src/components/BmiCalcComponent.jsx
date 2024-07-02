@@ -4,8 +4,8 @@ import "../assets/css/bmiCalcStyles.css";
 function BmiDescription({wClass, maxWeight, minWeight}) {
   return(
     <>
-    <section>
-      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span className="text-bold" data-testid="min-weight-range">{minWeight}</span>~<span className="text-bold"data-testid="max-weight-range">{maxWeight}</span></p>
+    <section className="text-white">
+      <p data-testid="results-description-full" id="results-description">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span className="text-bold" data-testid="min-weight-range">{minWeight}</span>~<span className="text-bold"data-testid="max-weight-range">{maxWeight}</span></p>
     </section>
     </>
   )
