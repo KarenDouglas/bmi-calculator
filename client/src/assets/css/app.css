@@ -15,24 +15,38 @@
     --regular: 400;
     --bodyLineH: 150%;
     --defaultInputColor: #D8E2E7;
+    --borderRad: 16px;
+    --margin : 34px 0;
 }
 body{
     font-family: "inter";
     line-height: var(--bodyLineH);
+    font-size: var(--bodyFontM);
 }
-
+/* WebKit browsers (Chrome, Safari, Opera) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Optional: May help with styling */
+}
 input[type="number"]{
-    width: 238px;
+    appearance: textfield;
+    -moz-appearance: textfield;
+    max-width: 260px;
+    min-width: 100px;
     height: 69px;
     font-size: var(--headerMed);
     font-weight: var(--semiBold);
     color: var(--primary-color);
     border-radius: 18px;;
     border: var(--defaultInputColor) 1px solid;
+    padding-left: 20px;
     transition:border 0.3s ease;
 }
+
 input[type=number]::placeholder{
     color: var(--defaultInputColor);
+   
 }
 
 input:hover{
@@ -46,7 +60,7 @@ input[type="radio"]{
     border: var(--defaultInputColor) 1px solid;
     border-radius: 50%;
     background-color: transparent;
-    transition:border 0.3s ease-in;
+    transition:border 0.3s ease-in-out;
 }
 input[type="radio"]:checked{
     background-color: rgb(52, 95, 246, .15);
@@ -83,11 +97,18 @@ h2{
 }
 h3{
     font-size: var(--headerMed);
-    font-weight: var(--semiBold);
     line-height: var(--headerLineH);
 }
 h4{
     font-size: var(--headerSm);
     font-weight: var(--semiBold);
     line-height: var(--headerLineH);
+}
+.container{
+    max-width: 328px;
+    margin: 0 auto;
+}
+
+.text-bold {
+    font-weight: var(--semiBold);
 }

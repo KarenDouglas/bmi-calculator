@@ -1,0 +1,99 @@
+main{
+    position: relative;
+}
+#blue-css-img{
+    position: absolute;
+    width: 100%;
+    height: 640px;
+    background: linear-gradient(rgba(224, 227, 231, 0.659),rgba(206, 224, 248, 0.81));
+    z-index: -1;
+    border-radius: 0  0 35px 35px;
+}
+#logo{
+    padding: 34px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1[aria-label="site-header"]{
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+    text-align: center;
+    font-size: var(--headerL);
+}
+#pitch{
+    margin: 34px auto 48px;
+    text-align: center;
+}
+.card{
+    background-color: var(--white-color);
+    border-radius: var(--borderRad);
+    box-shadow: 30px 56px 30px rgba(205, 216, 230, 0.389);
+    padding-top: 34px;
+}
+h3[aria-label="Enter your details below"]{
+   text-align: center;
+}
+#formOptions{
+    margin:34px 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.formOption{
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    font-weight: var(--semiBold);
+}
+.form-input-group{
+    display: flex;
+    flex-direction: column;
+    margin:  0 auto;
+    gap: 10px;
+}
+.form-height-group{
+   display: flex;
+    gap: 20px;
+    width: 280px;
+}
+
+#height,#weight{
+    width: 100%;
+}
+
+.input-container{
+    position: relative;
+}
+.measurement{
+    position: absolute;
+    top: 30%;
+    right: 15px;
+    font-weight: var(--semiBold);
+    color: var(--accent-color);
+    font-size: var(--headerMed);
+}
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#height-feet, #height-inch{
+    max-width: 110px;
+}
+#results-section{
+    width: 225px;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    margin: 30px auto;
+    border-radius: var(--borderRad);
+    padding: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+#bmi-results{
+    font-size: var(--headerXL);
+}
