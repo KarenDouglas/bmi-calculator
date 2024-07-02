@@ -109,10 +109,7 @@ h4{
 .text-bold {
     font-weight: var(--semiBold);
 }
-#man-eating{
-    height: 100px;
-    width: 100px;
-}
+
 .color-gun{
     color: var(--secondary-color);
 }

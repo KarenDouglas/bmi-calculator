@@ -1,0 +1,20 @@
+#man-eating{
+    height: 354px;
+    width: 100%;
+}
+#bmi-meaning-section{
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+#bmi-meaning-section h2{
+    font-size: 32px;
+    font-weight: var(--semiBold);
+}
+#bmi-meaning-article{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    max-width: 328px;
+    margin: 0 auto;
+}
