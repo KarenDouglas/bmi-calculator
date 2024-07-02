@@ -1,0 +1,39 @@
+#limitations-section{
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    margin-bottom: 56px;
+
+}
+#limitations-section h2{
+    font-size: 32px;
+    margin: 72px 0 32px 0;
+    
+}
+#limitations-section>section, #limitations-section>#limitations-cards{
+    max-width: 327px;
+    margin: 0 auto;
+}
+
+#limitations-section>#limitations-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    max-width: 279px;
+    margin: 0px auto 24px;
+}
+
+#limitations-cards>section header{
+display: flex;
+align-items: center;
+gap:10px;
+}
+.test-color{
+    background-color: rgb(114, 72, 79);
+}
+
