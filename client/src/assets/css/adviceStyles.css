@@ -9,18 +9,18 @@
 .advice-section h3{
     font-weight: var(--semiBold);
 }
-.advice-section>section{
+#advice-wrapper>section{
     max-width: 90%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     gap: 34px;
 }
-.advice-section>section i{
+#advice-wrapper>section i{
     height: 64px;
     width: 64px;
 }
-.advice-section>section section{
+#advice-wrapper>section section{
     display: flex;
     max-width: 327px;
     flex-direction: column;
@@ -28,15 +28,30 @@
 }
 
 @media (min-width: 450px) {
-    .advice-section>section{
+    #advice-wrapper>section{
         flex-direction: row;
         justify-content: space-between;
         max-width:686px;
         align-items: center;
     }
 
-    .advice-section>section section{
+    #advice-wrapper>section section{
         max-width: 586px;
 
+    }
+}
+
+@media (min-width: 924px) {
+    #advice-wrapper>section{
+        flex-direction: column;
+        align-items: baseline;
+        max-width: 350px;
+    }
+    #advice-wrapper{
+        display: flex;
+        flex-direction: row;
+        max-width: 1159px;
+        margin: 0 auto;
+        gap: 34px;
     }
 }
