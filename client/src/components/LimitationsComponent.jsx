@@ -13,14 +13,14 @@ function LimitationsComponent() {
     return(
         <>
         <article id="limitations-section">
-                <section>
+                <section id="limitations-intro">
                     <header>
-                        <h2>Limitations of BMI</h2>
+                        <h2 id="limitations-header">Limitations of BMI</h2>
                     </header>
-                    <p>Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
+                    <p id="limitations-p">Although BMI is often a practical indicator of healthy weight, it is not suited for every person. Specific groups should carefully consider their BMI outcomes, and in certain cases, the measurement may not be beneficial to use.</p>
                 </section>
                 <div id="limitations-cards">
-                    <section className="card">
+                    <section className="card" id="gender">
                         <div className="card-info">
                             <header>
                                 <i>
@@ -33,7 +33,7 @@ function LimitationsComponent() {
                             </p>
                         </div>
                     </section>
-                    <section className="card">
+                    <section className="card" id="age">
                         <div className="card-info">
                             <header>
                                 <i>
@@ -46,7 +46,7 @@ function LimitationsComponent() {
                             </p>                            
                         </div>
                     </section>
-                <section className="card">
+                <section className="card" id="muscle">
                     <div className="card-info">
                         <header>
                             <i>
@@ -59,7 +59,7 @@ function LimitationsComponent() {
                         </p>
                     </div>
                 </section>
-                <section className="card">
+                <section className="card" id="pregnancy">
                     <div className="card-info">
                         <header>
                             <i>
@@ -72,7 +72,7 @@ function LimitationsComponent() {
                         </p>
                     </div>
                 </section>
-                <section className="card">
+                <section className="card" id="race">
                     <div className="card-info"></div>
                     <header>
                         <i>
