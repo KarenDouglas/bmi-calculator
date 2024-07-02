@@ -1,0 +1,123 @@
+:root{
+    --primary-color: #253347;
+    --secondary-color: #5e6e85;
+    --accent-color: #345ff6;
+    --white-color: #FFF;
+    --headerXL: 64px;
+    --headerL: 48px;
+    --headerMed: 24px;
+    --headerSm: 20px;
+    --bodyMed: 16px;
+    --bodySm: 14px;
+    --semiBold: 600;
+    --headerLineH: 110%;
+    --bodyFontM : 16px;
+    --regular: 400;
+    --bodyLineH: 150%;
+    --defaultInputColor: #D8E2E7;
+    --borderRad: 16px;
+    --margin : 34px 0;
+    --blueGrad:  linear-gradient(rgba(224, 227, 231, 0.659),rgba(206, 224, 248, 0.81));
+}
+body{
+    font-family: "inter";
+    line-height: var(--bodyLineH);
+    font-size: var(--bodyFontM);
+}
+/* WebKit browsers (Chrome, Safari, Opera) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; /* Optional: May help with styling */
+}
+input[type="number"]{
+    appearance: textfield;
+    -moz-appearance: textfield;
+    max-width: 260px;
+    min-width: 100px;
+    height: 69px;
+    font-size: var(--headerMed);
+    font-weight: var(--semiBold);
+    color: var(--primary-color);
+    border-radius: 18px;;
+    border: var(--defaultInputColor) 1px solid;
+    padding-left: 20px;
+    transition:border 0.3s ease;
+}
+
+input[type=number]::placeholder{
+    color: var(--defaultInputColor);
+   
+}
+
+input:hover{
+border: var(--accent-color) 1px solid;
+}
+input[type="radio"]{
+    position: relative;
+    appearance: none;
+    width: 31px;
+    height: 31px;
+    border: var(--defaultInputColor) 1px solid;
+    border-radius: 50%;
+    background-color: transparent;
+    transition:border 0.3s ease-in-out;
+}
+input[type="radio"]:checked{
+    background-color: rgb(52, 95, 246, .15);
+    border: none;
+
+}
+input[type="radio"]:checked::before {
+    content: '';
+    display: block;
+    width: 12px;           
+    height: 12px;          
+    background-color: var(--accent-color);
+    border-radius: 50%;    
+    position: absolute;   
+    top: 50%;              
+    left: 50%;
+    opacity: 100%;              
+    transform: translate(-50%, -50%); 
+}
+
+
+input[type="radio"]:hover{
+  border-color: var(--accent-color);
+}
+h1{
+    font-size: var(--headerXL);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+h2{
+    font-size: var(--headerL);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+h3{
+    font-size: var(--headerMed);
+    line-height: var(--headerLineH);
+}
+h4{
+    font-size: var(--headerSm);
+    font-weight: var(--semiBold);
+    line-height: var(--headerLineH);
+}
+
+
+.text-bold {
+    font-weight: var(--semiBold);
+}
+
+.color-gun{
+    color: var(--secondary-color);
+}
+
+.text-center{
+    text-align: center;
+}
+.text-white{
+    color: var(--white-color);
+}

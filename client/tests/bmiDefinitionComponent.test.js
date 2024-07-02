@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import BmiDefinitionComponent from '../src/components/BmiDefinitionComponent';
 
-test('when the page loads, revelant elements are visible', () => {
+test('when the page loads, revelant elements are visible for the bmi definition component', () => {
     render(<BmiDefinitionComponent/>);
    const bmiMeaningHeader = screen.queryByRole('heading', {name: "What your BMI result means"});
    const bmiMeaningParagragh = screen.queryByText('A BMI range of 18.5 to 24.9 is', {exact: false});

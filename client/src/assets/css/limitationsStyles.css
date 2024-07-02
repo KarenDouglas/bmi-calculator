@@ -1,0 +1,97 @@
+#limitations-section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    padding: 0 16px;
+    max-width: 686px;
+    margin: 0 auto;
+    margin-bottom: 56px;
+
+}
+#limitations-intro{
+    max-width: 686px;
+    margin: 0 auto;
+}
+#limitations-header{
+    font-size: 32px;
+    margin: 72px 0 32px 0;
+    text-align: center;
+}
+#limitations-p{
+    text-align: center;
+}
+#limitations-cards>.card{
+    max-width: 327px;
+    margin: 0 auto;
+}
+
+#limitations-section>#limitations-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+.card-info{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    max-width: 279px;
+    margin: 0px auto 24px;
+}
+
+#limitations-cards>section header{
+display: flex;
+align-items: center;
+gap:10px;
+}
+.test-color{
+    background-color: rgb(114, 72, 79);
+}
+
+@media (min-width: 976px) {
+    #limitations-section{
+       max-width: 1160px;
+    }
+
+    #limitations-header{
+        text-align: left;
+        font-size: var(--headerL);       
+    }
+    #limitations-p{
+        text-align: left;
+        max-width: 564px;
+    }
+    #limitations-intro{
+        margin: 0 0;
+    }
+    
+    #gender{
+        position: absolute;
+        top:16px;
+        right: 64px;
+
+    }
+    #muscle{
+        position: absolute;
+        top: 300px;
+        right: 0;
+    }
+    #age{
+        position: absolute;
+        top: 300px;
+        right: 350px;
+        min-height: 175px;
+    }
+    #race{
+        position: absolute;
+        top:550px;
+        right: 64px;
+        min-height: 215px;
+    }
+    #pregnancy{
+        position: absolute;
+        top: 550px;
+        right: 460px;
+    }
+}

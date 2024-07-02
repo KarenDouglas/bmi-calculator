@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 import logo from "../assets/logo.svg"
-
-
+import "../assets/css/bmiCalcStyles.css";
 function BmiDescription({wClass, maxWeight, minWeight}) {
   return(
     <>
-    <section>
-      <p data-testid="results-description-full">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span data-testid="min-weight-range">{minWeight}</span>~<span data-testid="max-weight-range">{maxWeight}</span></p>
+    <section className="text-white">
+      <p data-testid="results-description-full" id="results-description">Your BMI suggests you're <span data-testid ="weight-classification">{wClass}</span>. Your ideal weight is between <span className="text-bold" data-testid="min-weight-range">{minWeight}</span>~<span className="text-bold"data-testid="max-weight-range">{maxWeight}</span></p>
     </section>
     </>
   )
@@ -25,7 +24,6 @@ function BmiCalcComponent() {
   //Imperial input Values
   const [heightFtInputValue, setHeightFtInputValue] = useState('');
   const [heightInInputValue, setHeightInInputValue] = useState('');
-  const [weightStInputValue, setWeightStInputValue] = useState('');
   const [weightLbsInputValue, setWeightLbsInputValue] = useState('');
   // BMI results section variables
   const [resultsHeader, setResultsHeader] = useState('Welcome!');
@@ -35,9 +33,6 @@ function BmiCalcComponent() {
   // healthy weight in kg range variablees
   const [minHealthyWeightKg, setMinHealthyWeightKg] = useState('');
   const [maxHealthyWeightKg, setMaxHealthyWeightKg] = useState('');
-  // healthy weight range in st and lbs variables
-  const [minHealthyWeightSt, setMinHealthyWeightSt] = useState('');
-  const [maxHealthyWeightSt, setMaxHealthyWeightSt] = useState('');
   const [healthyMinRangeString, setHealthyMinRangeString] = useState('');
   const [healthyMaxRangeString, setHealthyMaxRangeString] = useState('');
   // form measurement state variable
@@ -52,11 +47,10 @@ function BmiCalcComponent() {
       return roundedUpBMI;
   };
   // caculates BMI based on hieght (in) and weight(st)
-  const bmiCalculatorImperial = (heightFt,hieghtIn,weightSt,weightLbs) => {
+  const bmiCalculatorImperial = (heightFt,hieghtIn,weightLbs) => {
     const convertedFtToIn = (heightFt * 12) + hieghtIn
-    const convertedStToLbs = (weightSt * 14)+weightLbs
     //bmi = (weight_in_lbs /height_in) X 703
-    const bmiRaw = ( convertedStToLbs/Math.pow(convertedFtToIn,2)) *703
+    const bmiRaw = (weightLbs/Math.pow(convertedFtToIn,2)) *703
     return bmiRaw.toFixed(1)
   };
   // determines whether weight if overweight/ underweight or heathly weight
@@ -110,14 +104,9 @@ const calculateWeightRangeFtIn = (feet,inches) => {
   // Convert height to meters
   const minWeightLbs = (minHealthyBMI * Math.pow(heightInInches,2))/703;
   const maxWeightLbs = (maxHealthyBMI * Math.pow(heightInInches,2)) / 703;
-  console.log({minWeightLbs,maxWeightLbs})
-  // convert weight to stone and pounds
-  const minWeightStone = Math.floor(minWeightLbs/14);
-  const minWeightRemainingLbs = Math.trunc((minWeightLbs % 14).toFixed(1));  
-  const maxWeightStone = Math.floor(maxWeightLbs/14);
-  const maxWeightRemainingLbs = Math.trunc((maxWeightLbs % 14).toFixed(1));  
-  setHealthyMinRangeString(`${minWeightStone}st ${minWeightRemainingLbs}lbs`);
-  setHealthyMaxRangeString(`${maxWeightStone}st ${maxWeightRemainingLbs}lbs`);
+  console.log({minWeightLbs,maxWeightLbs})  
+  setHealthyMinRangeString(`${Math.trunc(minWeightLbs)}lbs`);
+  setHealthyMaxRangeString(`${Math.trunc(maxWeightLbs)}lbs`);
   return;
 };
 
@@ -160,10 +149,6 @@ const calculateWeightRangeFtIn = (feet,inches) => {
     setHeightInInputValue(parseFloat(e.target.value));    
   };
   
-  //get weight in stone from user's inputs
-  const handleWeightStChange = (e) => {
-    setWeightStInputValue(parseFloat(e.target.value));    
-  };
   //gets weight in pounds from user's inputs
   const handleWeightLbsChange = (e) => {
     setWeightLbsInputValue(parseFloat(e.target.value));
@@ -181,34 +166,40 @@ const calculateWeightRangeFtIn = (feet,inches) => {
       getMinHealthyWeightKg(heightKgInputValue);
       };
 
-      if(heightFtInputValue && heightInInputValue && weightStInputValue && weightLbsInputValue){
-        const imperialResults = bmiCalculatorImperial(heightFtInputValue, heightInInputValue,weightStInputValue, weightLbsInputValue);
+      if(heightFtInputValue && heightInInputValue && weightLbsInputValue){
+        const imperialResults = bmiCalculatorImperial(heightFtInputValue, heightInInputValue , weightLbsInputValue);
       setBmiresults(imperialResults);
       setResultsHeader('Your BMI is...');
       setShowResultsInfo(true);
       getWeightClass(imperialResults);
       calculateWeightRangeFtIn(heightFtInputValue,heightInInputValue);
       }
-  },[heightKgInputValue,weightKgInputValue,heightFtInputValue,heightInInputValue,weightStInputValue, weightLbsInputValue]);
+  },[heightKgInputValue,weightKgInputValue,heightFtInputValue,heightInInputValue, weightLbsInputValue]);
   // handles metric/imperial toggle state
 
 
     return (
       <>
+        <figure id="blue-css-img" aria-label="background image"></figure>
+        <picture id="logo">
+              <img  src={logo} alt="BMI Calculator Logo" />
+        </picture>
        <main>
-        <section>
-            <img src={logo} alt="BMI Calculator Logo" />
-            <figure aria-label="background image">
-            </figure>
+        <section className="container">
+          <header>
+              <h1 aria-label="site-header">Body Mass Index Calculator</h1>
+          </header>
+            <p  id="pitch" className="color-gun">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
         </section>
-        <section>
-            <h1>Body Mass Index Calculator</h1>
-            <p>Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
-        </section>
+
+        <section className="container card form-container">
             {/* FORM SECTION */}
             <form data-testid="measurment-form">
-                <h3 aria-label="Enter your details below">Enter your details below</h3>
-                <label htmlFor="metric" >Metric</label>
+              <header>
+                <h3 aria-label="Enter your details below" className="text-bold">Enter your details below</h3>
+              </header>
+              <div id="formOptions">
+                <div className="formOption">
                 <input 
                 type="radio" 
                 id="metric"
@@ -216,80 +207,113 @@ const calculateWeightRangeFtIn = (feet,inches) => {
                 checked= {selectedMeasurement === "METRIC"}
                 onChange={()=> handleMeasurementChange(METRIC)}             
                 />
-                <label htmlFor="imperial">Imperial</label>
+                <label htmlFor="metric" >Metric</label>
+                </div>
+                <div className="formOption">
                 <input 
                 type="radio" 
                 id="imperial" 
                 name="measurementOptions"
                 checked= {selectedMeasurement === "IMPERIAL"}
-                onChange={()=> handleMeasurementChange(IMPERIAL)}                              
+                onChange={()=> handleMeasurementChange(IMPERIAL)}                    
                 />
+                <label htmlFor="imperial">Imperial</label>
+                </div>
+              </div>
 
                 {/* START OF METRIC FORM */}
                 {selectedMeasurement === METRIC &&
-                <section>
-                  <label>Height</label>
-                  <input 
-                  type="number" 
-                  id="height" 
-                  placeholder='0'
-                  aria-label="height-kg"
-                  value={heightKgInputValue}
-                  onChange={handleHeightKgChange}
-                  />
-                  <label htmlFor="weight" >Weight</label>
-                  <input 
-                  type="number" 
-                  id="weight" 
-                  placeholder='0'
-                  aria-label="weight-kg"
-                  value={weightKgInputValue}
-                  onChange={handleWeightKgChange}
-                  />
+                <section className="form-group">
+                  <div className="form-input-group">
+                    <label>Height</label>
+                    <div className="input-container">
+                      <input 
+                      type="number" 
+                      id="height" 
+                      placeholder='0'
+                      aria-label="height-kg"
+                      value={heightKgInputValue}
+                      onChange={handleHeightKgChange}
+                      />
+                      <span className="measurement">cm</span>                   
+                    </div>
+                  </div>
+                  <div className="form-input-group">
+                    <label htmlFor="weight" >Weight</label>
+                    <div className="input-container">
+                      <input 
+                      type="number" 
+                      id="weight" 
+                      placeholder='0'
+                      aria-label="weight-kg"
+                      value={weightKgInputValue}
+                      onChange={handleWeightKgChange}
+                      />
+                      <span className="measurement">kg</span>
+                    </div>
+                  </div>
                 </section>
                 }
                 {/* END OF METRIC FORM */}
 
                 {/* START OF IMPERIAL FORM */}
                 {selectedMeasurement === IMPERIAL &&
-                <section>
-                  <label>Height</label>
-                  <input
-                  type="number"
-                  aria-label="height-feet" 
-                  placeholder="O"
-                  value={heightFtInputValue}
-                  onChange={handleHeightFtChange}               
-                  />
-                  <input 
-                  type="number"
-                  aria-label="height-inch"
-                  placeholder="0"
-                  value={heightInInputValue}
-                  onChange={handleHeightInChange}
-                  />
-                  <label>Weight</label>
-                  <input
-                  type="number"
-                  aria-label="weight-stone"
-                  placeholder="0"
-                  value={weightStInputValue}
-                  onChange={handleWeightStChange}
-                  />
-                <input
-                type="number"
-                aria-label="weight-pounds"
-                placeholder="0"
-                value={weightLbsInputValue}
-                onChange={handleWeightLbsChange}
-                />
+                <section className="form-group">
+                  <div className="form-input-group">
+                    <label>Height</label>
+
+                    <div className="form-height-group">
+                      <div className="input-container">
+                        <input
+                        type="number"
+                        id="height-feet"
+                        aria-label="height-feet" 
+                        placeholder="0"
+                        value={heightFtInputValue}
+                        onChange={handleHeightFtChange}    
+                        />
+                        <span className="measurement">ft</span>
+                      </div>
+                      <div className="input-container">
+                        <input 
+                        type="number"
+                        id="height-inch"
+                        aria-label="height-inch"
+                        placeholder="0"
+                        value={heightInInputValue}
+                        onChange={handleHeightInChange}
+                        />
+                        <span className="measurement">in</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="form-input-group">
+                    <label>Weight</label>
+                    <div className="input-container">
+                      <input
+                      type="number"
+                      id="weight-pounds"
+                      aria-label="weight-pounds"
+                      placeholder="0"
+                      value={weightLbsInputValue}
+                      onChange={handleWeightLbsChange}
+                      />
+                        <span className="measurement">lbs</span>
+                    </div>
+                  </div>
                 </section>
                 }
               {/* END OF IMPERIAL FORM */}
             </form>
-            <section>
-                <h3 aria-label="Results header">{resultsHeader}</h3>
-             {  bmiResults && <p  data-testid="results">{bmiResults}</p>}
+            <section id="results-section">
+
+              <div id="results-header">
+                <h3 aria-label="Results header" className={resultsHeader === "Welcome!"?"text-bold":""}>{resultsHeader}</h3>
+                {  bmiResults && 
+                <p className="text-bold"id="bmi-results" data-testid="results">{bmiResults}</p>
+                }
+              </div>
                
           
             {showResultsInfo ? (
@@ -305,6 +329,7 @@ const calculateWeightRangeFtIn = (feet,inches) => {
 
 
             </section>
+        </section>
        </main>
       </>
     )
