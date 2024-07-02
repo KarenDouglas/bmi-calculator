@@ -181,15 +181,15 @@ const calculateWeightRangeFtIn = (feet,inches) => {
     return (
       <>
         <figure id="blue-css-img" aria-label="background image"></figure>
-       <main>
         <picture id="logo">
               <img  src={logo} alt="BMI Calculator Logo" />
         </picture>
+       <main>
         <section className="container">
           <header>
               <h1 aria-label="site-header">Body Mass Index Calculator</h1>
           </header>
-            <p  id="pitch">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
+            <p  id="pitch" className="color-gun">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
         </section>
 
         <section className="container card form-container">

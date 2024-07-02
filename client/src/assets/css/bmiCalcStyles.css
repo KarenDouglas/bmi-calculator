@@ -26,6 +26,7 @@ h1[aria-label="site-header"]{
 #pitch{
     margin: 34px auto 48px;
     text-align: center;
+    font-size: var(--bodyMed);
 }
 .container{
     max-width: 328px;
@@ -139,6 +140,10 @@ h3[aria-label="Enter your details below"]{
         flex-direction: row;
         align-items: center;
     }
+    header h1{
+        max-width: 385px;
+        margin: 0 auto;
+    }
 
 }
 @media (max-width: 480px) {
@@ -150,4 +155,36 @@ h3[aria-label="Enter your details below"]{
         flex-direction: column;
     }
   
+}
+@media(min-width: 768px){
+    #blue-css-img{
+        width: 70%;
+        height: 737px;
+    }
+    main{
+        display: flex;
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+    h1[aria-label="site-header"]{
+        font-size: var(--headerXL);
+        max-width: 525px;
+        text-align: left;
+    }
+    #logo{
+        justify-content: left;
+        max-width: 1275px;
+        margin: 0 auto;
+        padding-left: 20px;
+    }
+    #pitch{
+        text-align: left;
+        max-width: 465px;
+        margin: 34px 0;
+        font-size: 20px;
+    }
+    .form-container{
+        max-width: 564px;
+        max-height: 445px;
+    }
 }

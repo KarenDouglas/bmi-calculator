@@ -1,5 +1,6 @@
 import React from 'react'
 import manEatingFoodPic from '../assets/image-man-eating.webp'
+import "../assets/css/bmiDefStyles.css";
 
 function BmiDefinitionComponent() {
 
