@@ -180,9 +180,8 @@ const calculateWeightRangeFtIn = (feet,inches) => {
 
     return (
       <>
+        <figure id="blue-css-img" aria-label="background image"></figure>
        <main>
-            <figure id="blue-css-img" aria-label="background image">
-            </figure>
         <picture id="logo">
               <img  src={logo} alt="BMI Calculator Logo" />
         </picture>
@@ -193,11 +192,11 @@ const calculateWeightRangeFtIn = (feet,inches) => {
             <p  id="pitch">Better understand your weight in relation to your height using our body mass index (BM) calculator. While BMI is not the sole determinant of a healthy weight, it offers a valuable starting point to evaluate your overall health and well-being.</p>
         </section>
 
-        <section className="container card">
+        <section className="container card form-container">
             {/* FORM SECTION */}
             <form data-testid="measurment-form">
               <header>
-                <h3 aria-label="Enter your details below">Enter your details below</h3>
+                <h3 aria-label="Enter your details below" className="text-bold">Enter your details below</h3>
               </header>
               <div id="formOptions">
                 <div className="formOption">
@@ -294,6 +293,7 @@ const calculateWeightRangeFtIn = (feet,inches) => {
                     <div className="input-container">
                       <input
                       type="number"
+                      id="weight-pounds"
                       aria-label="weight-pounds"
                       placeholder="0"
                       value={weightLbsInputValue}
@@ -307,8 +307,13 @@ const calculateWeightRangeFtIn = (feet,inches) => {
               {/* END OF IMPERIAL FORM */}
             </form>
             <section id="results-section">
+
+              <div id="results-header">
                 <h3 aria-label="Results header" className={resultsHeader === "Welcome!"?"text-bold":""}>{resultsHeader}</h3>
-             {  bmiResults && <p className="text-bold"id="bmi-results" data-testid="results">{bmiResults}</p>}
+                {  bmiResults && 
+                <p className="text-bold"id="bmi-results" data-testid="results">{bmiResults}</p>
+                }
+              </div>
                
           
             {showResultsInfo ? (

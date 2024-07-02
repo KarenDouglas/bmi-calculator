@@ -7,7 +7,7 @@ function BmiDefinitionComponent() {
     <>
     <section>
         <figure>
-            <img src={manEatingFoodPic} alt="man eating sushi" />
+            <img id='man-eating' src={manEatingFoodPic} alt="man eating sushi" />
         </figure>
         <h2>What your BMI result means</h2>
         <p>  

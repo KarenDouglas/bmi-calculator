@@ -104,11 +104,12 @@ h4{
     font-weight: var(--semiBold);
     line-height: var(--headerLineH);
 }
-.container{
-    max-width: 328px;
-    margin: 0 auto;
-}
+
 
 .text-bold {
     font-weight: var(--semiBold);
+}
+#man-eating{
+    height: 100px;
+    width: 100px;
 }

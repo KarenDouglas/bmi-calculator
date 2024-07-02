@@ -1,5 +1,6 @@
 main{
     position: relative;
+    padding: 20px;
 }
 #blue-css-img{
     position: absolute;
@@ -26,11 +27,15 @@ h1[aria-label="site-header"]{
     margin: 34px auto 48px;
     text-align: center;
 }
+.container{
+    max-width: 328px;
+    margin: 0 auto;
+}
 .card{
     background-color: var(--white-color);
     border-radius: var(--borderRad);
     box-shadow: 30px 56px 30px rgba(205, 216, 230, 0.389);
-    padding-top: 34px;
+    padding: 34px 20px 1px;
 }
 h3[aria-label="Enter your details below"]{
    text-align: center;
@@ -60,8 +65,11 @@ h3[aria-label="Enter your details below"]{
     width: 280px;
 }
 
-#height,#weight{
-    width: 100%;
+#height,#weight, #weight-pounds{
+    width: 90%;
+    min-width: 100px;
+    max-width: 260px;
+   
 }
 
 .input-container{
@@ -84,16 +92,62 @@ h3[aria-label="Enter your details below"]{
     max-width: 110px;
 }
 #results-section{
-    width: 225px;
+    width: 80%;
+    max-width: 225px;
+    min-width: 200px;
     background-color: var(--accent-color);
     color: var(--white-color);
-    margin: 30px auto;
     border-radius: var(--borderRad);
     padding: 34px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    margin: 34px auto;   
+}
+#results-header{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 34px auto; 
+    width: 100%;
 }
 #bmi-results{
     font-size: var(--headerXL);
+}
+
+/* Tablet styles */
+
+
+
+@media (min-width: 380px) {
+    .container{
+        max-width: 686px;
+    }
+    #formOptions{
+        width: 65%;
+        justify-content: space-between;
+        margin: 34px;
+    }
+    .form-group{
+        display: flex;
+        flex-direction: row;
+    }
+    #results-section{
+        max-width: 662px;
+        border-radius: var(--borderRad) 80px  80px var(--borderRad);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+}
+@media (max-width: 480px) {
+    .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+    #results-section{
+        flex-direction: column;
+    }
+  
 }
