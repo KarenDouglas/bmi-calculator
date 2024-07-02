@@ -17,6 +17,7 @@
     --defaultInputColor: #D8E2E7;
     --borderRad: 16px;
     --margin : 34px 0;
+    --blueGrad:  linear-gradient(rgba(224, 227, 231, 0.659),rgba(206, 224, 248, 0.81));
 }
 body{
     font-family: "inter";

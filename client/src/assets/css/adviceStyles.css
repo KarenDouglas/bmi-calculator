@@ -1,0 +1,27 @@
+.advice-section{
+    background: linear-gradient(rgba(209, 223, 242, 0.226),rgba(160, 178, 198, 0.318));
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 53px 0;
+    margin-top: 53px;
+}
+.advice-section h3{
+    font-weight: var(--semiBold);
+}
+.advice-section>section{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+.advice-section>section i{
+    height: 64px;
+    width: 64px;
+}
+.advice-section>section>section{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
