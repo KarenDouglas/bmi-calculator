@@ -1,21 +1,45 @@
-# Frontend Mentor - Body Mass Index Calculator
+# Frontend Mentor - Body Mass Index Calculator solution
 
-![Design preview for the Body Mass Index Calculator coding challenge](./preview.jpg)
+This is a solution to the [Body Mass Index Calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for purchasing this premium Frontend Mentor coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Main Features](#main-features)
+  - [Installation and Setup](#installation-and-setup)
+  - [Links](#links)
+- [Directory Structure](#directory-structure)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Road Map](#road-map)
+  - [Test Plan](#test-plan)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects. These premium challenges are perfect portfolio pieces, so please feel free to use what you create in your portfolio to show others.
 
-**To do this challenge, you need a strong understanding of HTML, CSS, and JavaScript.**
 
-## The challenge
+## Overview
 
-Your challenge is to build out this body mass index calculator page and get it looking as close to the design as possible.
+### The challenge
 
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+Users should be able to:
 
+- Select whether they want to use metric or imperial units
+- Enter their height and weight
+- See their BMI result, with their weight classification and healthy weight range
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+
+### Screenshot
+
+![](./client/preview.png)
+
+### Main Features
 Your users should be able to:
 
 - Select whether they want to use metric or imperial units
@@ -24,81 +48,137 @@ Your users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
 
-### Expected behaviour
+### Installation and Setup
+### Getting Started
+1. Clone the code and prepare the environment
+```bash
+git clone https://github.com/KarenDouglas/bmi-calculator
 
-Below you will find the BMI ranges and their weight classifications. Based on the person's BMI results, add their weight classification to the sentence "Your BMI suggests you’re" within the results component.
+cd client
+```
 
-- Underweight: BMI less than 18.5
-- Healthy weight: BMI 18.5 to 24.9
-- Overweight: BMI 25 to 29.9
-- Obese: BMI 30 or greater
+2. Install dependencies
 
-Add the individual's healthy weight range based on the lower and upper BMI categorisations and the person's height.
+```bash
+npm i
+```
+3. To Start dev server
+```bash
+npm run dev
+```
+4. To run tests
+```bash
+npm run test
 
-## Where to find everything
+# to keep test running in background
+npm run watch 
+# then type "a" to run all tests
+```
 
-Your task is to build out the project to the design file provided. We provide both Sketch and Figma versions of the design, so you can choose which tool you prefer to use. You can download the design file on the platform. **Please be sure not to share them with anyone else.** The design download comes with a `README.md` file as well to help you get set up.
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized. Some are reusable at multiple screen sizes. So if you don't see an image in a specific folder, it will typically be in another folder for that page.
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
 
-The design system in the design file will give you more information about the various colors, fonts, and styles used in this project. Our fonts always come from [Google Fonts](https://fonts.google.com/).
+### Links
 
-## Building your project
+- Solution URL: [https://www.frontendmentor.io/solutions/tdd-jest-react-testing-library-react-vanilla-css-LLXME3recx](https://www.frontendmentor.io/solutions/tdd-jest-react-testing-library-react-vanilla-css-LLXME3recx)
+- Live Site URL: [https://bmi-calculator-challenge.netlify.app/](https://bmi-calculator-challenge.netlify.app/)
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+## Directory Structure
 
-1. Separate the `starter-code` from the rest of this project and rename it to something meaningful for you. Initialize the codebase as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/). **⚠️ IMPORTANT ⚠️: There are already a couple of `.gitignore` files in this project. Please do not remove them or change the content of the files. If you create a brand new project, please use the `.gitignore` files provided in your new codebase. This is to avoid the accidental upload of the design files to GitHub. With these premium challenges, please be sure not to share the design files in your GitHub repo. Thanks!**
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+```
+client/
+├─── dist/
+│├─── assets/
+│└── index.html
+├─── node_modules/
+├─── src/
+│├─── assets/
+│├─── components/
+││├─── AdviceComponent
+││├─── BmiCalcComponent
+││├─── BmiDefinitionComponent
+││└── LimitationsComponent
+│├─── App.jsx
+│├─── index.css
+│└── main.jsx
+├─── tests/
+││├─── AdviceComponent.test.js
+││├─── bmiCalcCompImperial.test.js
+││├─── bmiCalcCompMetric.test.js
+││└──LimitationsComponent.test.js
+├─── eslintrc.cjs
+├─── .gitignore
+├─── babel.config.cjs
+├─── index.html
+├─── package-lock.json
+├─── vite.config.js
+├─── LICENSE
+├─── README.md
 
-## Deploying your project
+```
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+## My process
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+### Built with
 
-## Create a custom `README.md`
+- [React](https://reactjs.org/) - JS library
+- TDD
+- Jest
+- React Testing Library
+- Vite
+- NetLify
+- Mobile-first workflow
+- CSS custom properties
+- Flexbox
+- Semantic HTML5 markup
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+### Road Map
+- Phase 1: Break project down to components
+- Phase 2: Write test for a component
+- Phase 3: Pass test for component
+- Phase 4: Repeat writing and passing test for each component
+- Phase 5: Style component  using mobile first approach one component at a time. 
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+### Test Plan
+- Unit test for components
+- Integration tests for user flows and interactions 
 
-## Submitting your solution
+### What I learned
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+### Jest 
+During the process of building my project, I learned extensively about Jest and its integration with Babel configurations, particularly for interpreting images. I became proficient in using Jest's matchers to test various conditions, such as truthiness, numerical values, and string patterns. Additionally, I explored the "not" modifier, which allows for more flexible and comprehensive testing by inverting matchers. This experience has enhanced my understanding of creating robust and reliable test suites for JavaScript applications.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+### React Testing Library
+While using React Testing Library (RTL), I learned its philosophy for creating maintainable tests that facilitate refactoring and ensure that software components function correctly from a user's perspective. RTL encourages avoiding internal state and methods of components, focusing instead on how users interact with the interface. I also delved into different query types, such as getBy, queryBy, and findBy, understanding the specific scenarios for each and prioritizing queries based on accessibility to improve user experience. Additionally, I gained experience in rendering components for testing and using fire events to simulate user interactions, which is crucial for effective integration tests.
 
-**⚠️ IMPORTANT ⚠️: With these premium challenges, please be sure not to upload the design files to GitHub when you're submitting to the platform and sharing it around. If you've created a brand new project, the easiest way to do that is to copy across the `.gitignore` provided in this starter project.**
+### Accessibility
+React Testing Library surprisingly taught me a lot about accessibility through its emphasis on prioritizing queries based on accessibility principles. I learned about accessible names, the importance of elements with roles, and which elements should not be aria-labeled. This knowledge has significantly changed the way I think about and interact with the DOM, making me more mindful of creating accessible web applications.
 
-## Sharing your solution
 
-There are multiple places you can share your solution:
+### Continued development
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+In my continued development, I aim to explore more features of Jest and RTL, such as using mock functions to better isolate certain parts of my code and test them effectively. I also plan to dive into RTL user events, which are recommended over fire events for simulating user interactions. Furthermore, I want to improve my ability to estimate project completion times, acknowledging that I often underestimate the learning curve and the initial challenges before developing a workflow. For future projects, I am committed to incorporating CSS animations into my websites to create a more pleasant viewing experience.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+### Useful resources
 
-## Got feedback for us?
+- [Testing Library](https://testing-library.com/docs/react-testing-library/intro/) 
+- [Jest Documentation](https://jestjs.io/docs/getting-started)  
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
 
-**Have fun building!** 🚀
+
+## Author
+
+- LinkedIn: [@KarenDouglas](https://www.linkedin.com/in/karen-douglas-344974246/)
+- Frontend Mentor: [@KarenDouglas](https://www.frontendmentor.io/profile/KarenDouglas)
+- Twitter: [@CodeNoob4Life](https://twitter.com/CodeNoob4Life)
+
+
+## Acknowledgments
+
+Thank you so much to Frontend Mentor for providing such great challenges that always help me to grow
+
+
