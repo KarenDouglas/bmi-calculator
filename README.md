@@ -1,4 +1,5 @@
 # Frontend Mentor - Body Mass Index Calculator solution
+![](./client/preview.png)
 
 This is a solution to the [Body Mass Index Calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
@@ -6,7 +7,6 @@ This is a solution to the [Body Mass Index Calculator challenge on Frontend Ment
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
   - [Main Features](#main-features)
   - [Installation and Setup](#installation-and-setup)
   - [Links](#links)
@@ -35,9 +35,8 @@ Users should be able to:
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
 
-### Screenshot
 
-![](./client/preview.png)
+
 
 ### Main Features
 Your users should be able to:
