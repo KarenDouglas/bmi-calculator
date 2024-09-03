@@ -6,7 +6,6 @@ This is a solution to the [Body Mass Index Calculator challenge on Frontend Ment
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
   - [Main Features](#main-features)
   - [Installation and Setup](#installation-and-setup)
   - [Links](#links)
@@ -99,6 +98,7 @@ client/
 ├─── index.html
 ├─── package-lock.json
 ├─── vite.config.js
+├─── jestgit a.config.js
 ├─── LICENSE
 ├─── README.md
 
