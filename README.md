@@ -1,4 +1,7 @@
 # Frontend Mentor - Body Mass Index Calculator solution
+![Coverage Badge](https://img.shields.io/badge/coverage-98%25-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Last Commit](https://img.shields.io/github/last-commit/KarenDouglas/bmi-calculator)
 ![](./client/preview.png)
 
 This is a solution to the [Body Mass Index Calculator challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/body-mass-index-calculator-brrBkfSz1T). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
@@ -10,6 +13,7 @@ This is a solution to the [Body Mass Index Calculator challenge on Frontend Ment
   - [Installation and Setup](#installation-and-setup)
   - [Links](#links)
 - [Directory Structure](#directory-structure)
+- [Test Coverage](#test-coverage)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Road Map](#road-map)
@@ -59,6 +63,9 @@ npm run test
 # to keep test running in background
 npm run watch 
 # then type "a" to run all tests
+
+# to check test coverage
+npm run coverage
 ```
 
 
@@ -103,6 +110,36 @@ client/
 ├─── README.md
 
 ```
+## Test Coverage
+
+![Coverage Badge](https://img.shields.io/badge/coverage-98%25-brightgreen)
+
+The current test coverage for this project is as follows:
+
+| File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s |
+|------------------------------|---------|----------|---------|---------|-------------------|
+| All files                    |   98.19 |    88.88 |   95.23 |   98.19 |                   |
+| assets                       |     100 |      100 |     100 |     100 |                   |
+| ├── icon-age.svg             |     100 |      100 |     100 |     100 |                   |
+| ├── icon-eating.svg          |     100 |      100 |     100 |     100 |                   |
+| ├── icon-exercise.svg        |     100 |      100 |     100 |     100 |                   |
+| ├── icon-gender.svg          |     100 |      100 |     100 |     100 |                   |
+| ├── icon-muscle.svg          |     100 |      100 |     100 |     100 |                   |
+| ├── icon-pregnancy.svg       |     100 |      100 |     100 |     100 |                   |
+| ├── icon-race.svg            |     100 |      100 |     100 |     100 |                   |
+| ├── icon-sleep.svg           |     100 |      100 |     100 |     100 |                   |
+| ├── image-man-eating.webp    |     100 |      100 |     100 |     100 |                   |
+| └── logo.svg                 |     100 |      100 |     100 |     100 |                   |
+| assets/css                   |     100 |      100 |     100 |     100 |                   |
+| ├── adviceStyles.css         |     100 |      100 |     100 |     100 |                   |
+| ├── bmiCalcStyles.css        |     100 |      100 |     100 |     100 |                   |
+| ├── bmiDefStyles.css         |     100 |      100 |     100 |     100 |                   |
+| └── limitationsStyles.css    |     100 |      100 |     100 |     100 |                   |
+| components                   |   97.93 |    88.88 |   95.23 |   97.93 |                   |
+| ├── AdviceComponent.jsx      |     100 |      100 |     100 |     100 |                   |
+| ├── BmiCalcComponent.jsx     |   97.87 |    88.88 |   94.44 |   97.87 | 62,208            |
+| ├── BmiDefinitionComponent.jsx |   100 |      100 |     100 |     100 |                   |
+| └── LimitationsComponent.jsx |     100 |      100 |     100 |     100 |                   |
 
 
 ## My process
